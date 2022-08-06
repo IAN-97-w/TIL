@@ -46,5 +46,5 @@ System.out.println(str.replace('O', 'I')); // AIBICIDIEIF 출력
 * equalsIgnoreCase(String anotherString):bolean -> 문자열과 anotherString 대소문자 관계없이 비교
 ```JAVA
 String str = "ABCDEFGH";
-System.out.println(str.equalsIgnoreCase("abcdefgh)); // true
+System.out.println(str.equalsIgnoreCase("abcdefgh")); // true
 ```
