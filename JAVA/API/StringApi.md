@@ -19,8 +19,32 @@ StringBuffer나 StringBuilder는 값을 변경할수 있기 때문에 문자열 
 
 ### String 클래스
 
-* String.hashCode():int
+* concat(Strig str):String -> 문자열 뒤에 문자열 추가하는 메소드
 ```JAVA
 String str = "JAVA"
-System.out.println(str.hashCode());
+String concatStr = str.concat("!!!");
+System.out.println(concatStr);  // JAVA!!!출력
+```
+* substring(int beginIndex):String -> beginIndex위치 부터 끝까지 문자열 반환
+```JAVA
+String str = "ABCDEFGHIJ";
+System.out.println(str.substring(6)); // GHIJ 출력
+```
+
+* substring(int beginIndex, int endIndex):String -> beginIndex 위치 부터 endIndex 전 위치까지 문자열 반환
+```JAVA
+String str = "ABCDEFGHIJ";
+System.out.println(str.substring(3, 7)); // DEFG 출력
+```
+
+* replace(char oldChar, char newChar):String -> 문자열에 있는 모든 oldChar를 newChar로 변환
+```JAVA
+String str = "AOBOCODOEOF";
+System.out.println(str.replace('O', 'I')); // AIBICIDIEIF 출력
+```
+
+* equalsIgnoreCase(String anotherString):bolean -> 문자열과 anotherString 대소문자 관계없이 비교
+```JAVA
+String str = "ABCDEFGH";
+System.out.println(str.equalsIgnoreCase("abcdefgh)); // true
 ```
