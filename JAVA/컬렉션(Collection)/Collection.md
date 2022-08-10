@@ -105,7 +105,7 @@ ArrayList<String> list = new ArrayList<String>(3);
 		list.clear();
 		System.out.println("list : " + list); // [] 출력
 		// isEmpty():boolean
-		System.out.println(list.isEmpty());
+		System.out.println(list.isEmpty()); // true
 ```
 
 ArrayList 주로 사용  
