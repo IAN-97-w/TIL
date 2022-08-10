@@ -54,9 +54,9 @@ List의 후손으로 초기 저장용량은 10으로 자동 설정
 
 ```JAVA
 ArrayList<String> list = new ArrayList<String>(3);
-					// 제네릭(타입 설정), 제네릭을 설정하지 않으면 모든 타입 저장 가능
+	   // 제네릭(타입 설정), 제네릭을 설정하지 않으면 모든 타입 저장 가능
 
-		//	add(String e) -> 객체 추가(list의 제네릭을 String으로 설정했기때문에 add의 파라미터도 String)
+		// add(String e) -> 객체 추가(list의 제네릭을 String으로 설정했기때문에 add의 파라미터도 String)
 		list.add("문자열");
 		list.add("도대담");
 		list.add("남나눔");
@@ -64,7 +64,7 @@ ArrayList<String> list = new ArrayList<String>(3);
 
 		list.add("하현호");	// ArrayList의 저장용량이 꽉찼지만 객체 추가시 저장용량도 늘어남
 		System.out.println(list);	// [문자열, 도대담, 남나눔, 하현호] 출력
-		//	size():int -> 현재 list에 담긴 element 개수 반환
+		// size():int -> 현재 list에 담긴 element 개수 반환
 		System.out.println(list.size()); //	4 출력
 
 		// add(int index, String element) -> index위치에 객체 삽입
