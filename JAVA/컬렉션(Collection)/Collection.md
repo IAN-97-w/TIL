@@ -214,7 +214,7 @@ while(it2.hasNext()) {
 ```
 
 
-### Hasshtable
+### Hashtable
 
 HashMap의 구버전  
 키 객체 만드는 법은 HashMap과 동일하나 Hashtable은 쓰레드 동기화가 된 상태이기 때문에, 복수의 쓰레드가 동시에 Hashtable에 접근해 객체를 추가, 삭제 하더라도 쓰레드에 안전
