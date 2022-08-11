@@ -166,22 +166,6 @@ Key와 Value로 구성되어 있으며, 키와 값은 모두 객체
 
 키 객체는 hashCode()와 equals()를 재정의해 동등 객체가 될 조건을 정해야함, 때문에 키 타입은 hashCOde와 equals()메소드가 재정의 되어있는 string타입을 주로 사용
 
-### Hasshtable
-
-HashMap의 구버전  
-키 객체 만드는 법은 HashMap과 동일하나 Hashtable은 쓰레드 동기화가 된 상태이기 때문에, 복수의 쓰레드가 동시에 Hashtable에 접근해 객체를 추가, 삭제 하더라도 쓰레드에 안전
-
-### Properties
-
-키와 값을 String타입으로 제한한 Map컬렉션  
-주로 Properties느 프로퍼티(\*.properties)파일을 읽어 들일 때 주로 사용
-
-#### 프로퍼티(\*.properties)파일
-
-- 옵션정보, 데이터베이스 연결정보, 국제화정보를 기록하여 텍스트 파일로 활용
-- 애플리케이션에서 주로 변경이 잦은 문자열을 저장하여 관리하기 때문에 유지보수를 편리하게 만들어줌
-- 키와 값이 '='기호로 연결되어 있는 텍스트 파일로 ISO 8859-1 문자셋으로 저장되고, 한글은 유니코드로 변환되어 저장
-
 ```JAVA
 HashMap<String, Snack> map = new HashMap<>();
 				// 타입 추론
@@ -228,3 +212,20 @@ while(it2.hasNext()) {
 	System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
 }
 ```
+
+
+### Hasshtable
+
+HashMap의 구버전  
+키 객체 만드는 법은 HashMap과 동일하나 Hashtable은 쓰레드 동기화가 된 상태이기 때문에, 복수의 쓰레드가 동시에 Hashtable에 접근해 객체를 추가, 삭제 하더라도 쓰레드에 안전
+
+### Properties
+
+키와 값을 String타입으로 제한한 Map컬렉션  
+주로 Properties느 프로퍼티(\*.properties)파일을 읽어 들일 때 주로 사용
+
+#### 프로퍼티(\*.properties)파일
+
+- 옵션정보, 데이터베이스 연결정보, 국제화정보를 기록하여 텍스트 파일로 활용
+- 애플리케이션에서 주로 변경이 잦은 문자열을 저장하여 관리하기 때문에 유지보수를 편리하게 만들어줌
+- 키와 값이 '='기호로 연결되어 있는 텍스트 파일로 ISO 8859-1 문자셋으로 저장되고, 한글은 유니코드로 변환되어 저장
