@@ -184,48 +184,47 @@ HashMap의 구버전
 
 ```JAVA
 HashMap<String, Snack> map = new HashMap<>();
-											// 타입 추론
-		// put(K key, V value):V -> 맵에 key와 value 추가(key의 전 vlaue 반환)
-		map.put("새우깡", new Snack("짠맛", 1500));
-		map.put("다이제", new Snack("단맛", 2500));
-		map.put("포테이토칩", new Snack("짠맛", 1500));
-		map.put("고소미", new Snack("고소한맛", 1000));
-		System.out.println(map); // {다이제=단맛[2500원], 새우깡=짠맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
+				// 타입 추론
+// put(K key, V value):V -> 맵에 key와 value 추가(key의 전 vlaue 반환)
+map.put("새우깡", new Snack("짠맛", 1500));
+map.put("다이제", new Snack("단맛", 2500));
+map.put("포테이토칩", new Snack("짠맛", 1500));
+map.put("고소미", new Snack("고소한맛", 1000));
+System.out.println(map); // {다이제=단맛[2500원], 새우깡=짠맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
 
-		map.put("새우깡", new Snack("매운맛", 1500)); // 중복저장이 불가능, 덮어쓰기
-		System.out.println(map); // {다이제=단맛[2500원], 새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
+map.put("새우깡", new Snack("매운맛", 1500)); // 중복저장이 불가능, 덮어쓰기
+System.out.println(map); // {다이제=단맛[2500원], 새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
 
-		// containsKey(Object key):boolean -> 맵에 특정 key가 있는지 확인
-		System.out.println(map.containsKey("새우깡")); // true 출력
+// containsKey(Object key):boolean -> 맵에 특정 key가 있는지 확인
+System.out.println(map.containsKey("새우깡")); // true 출력
 
-		// containsValue(Object value):boolean -> 맵에 특정 value가 있는지 확인 (equals메소드 오버라이딩 해야함)
-		System.out.println(map.containsValue(new Snack("짠맛", 1500))); // true 출력
+// containsValue(Object value):boolean -> 맵에 특정 value가 있는지 확인 (equals메소드 오버라이딩 해야함)
+System.out.println(map.containsValue(new Snack("짠맛", 1500))); // true 출력
 
-		// get(Object key):V -> 맵에 특정 key의 value를 반환(존재하지 않으면 null 반환)
-		Snack get1 = map.get("새우깡"); // 매운맛[1500원] 반환
-		System.out.println(get1);
-		Snack get2 = map.get("홈런볼");
-		System.out.println(get2); // null 반환
+// get(Object key):V -> 맵에 특정 key의 value를 반환(존재하지 않으면 null 반환)
+Snack get1 = map.get("새우깡"); // 매운맛[1500원] 반환
+System.out.println(get1);
+Snack get2 = map.get("홈런볼");
+System.out.println(get2); // null 반환
 
-		// keySet():Set<K> -> map에 있는 모든 key를 Set에 담아 반환
-		Set<String> set1 = map.keySet();
-		System.out.println(set1);
-		Iterator<String> it1 = set1.iterator();
-		while(it1.hasNext()) {
-			String key = it1.next();
-			Snack value = map.get(key);
-			System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
-		}
+// keySet():Set<K> -> map에 있는 모든 key를 Set에 담아 반환
+Set<String> set1 = map.keySet();
+System.out.println(set1);
+Iterator<String> it1 = set1.iterator();
+while(it1.hasNext()) {
+	String key = it1.next();
+	Snack value = map.get(key);
+	System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
+}
 
-		// entrySet():set<Entry<K, V>> -> 모든 entry를 set에 담아 반환
-		Set<Entry<String, Snack>> set2 = map.entrySet();
-		System.out.println(set2);
-		Iterator<Entry<String, Snack>> it2 = set2.iterator();
-		while(it2.hasNext()) {
-			Entry<String, Snack> entry = it2.next();
-			String key = entry.getKey();
-			Snack value = entry.getValue();
-			System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
-		}
-	}
+// entrySet():set<Entry<K, V>> -> 모든 entry를 set에 담아 반환
+Set<Entry<String, Snack>> set2 = map.entrySet();
+System.out.println(set2);
+Iterator<Entry<String, Snack>> it2 = set2.iterator();
+while(it2.hasNext()) {
+	Entry<String, Snack> entry = it2.next();
+	String key = entry.getKey();
+	Snack value = entry.getValue();
+	System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
+}
 ```
