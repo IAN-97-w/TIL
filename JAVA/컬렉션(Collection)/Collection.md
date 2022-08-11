@@ -104,17 +104,128 @@ ArrayList<String> list = new ArrayList<String>(3);
 		// clear() -> 리스트안의 객체 전부 제거
 		list.clear();
 		System.out.println("list : " + list); // [] 출력
-		// isEmpty():boolean
+		// isEmpty():boolean -> 리스츠가 비었는지 확인
 		System.out.println(list.isEmpty()); // true
 ```
 
-ArrayList 주로 사용  
-Vector - ArrayList의 구버전 요즘 거의 사용 안함  
-LinkedList - 수정이 빈번하게 일어날때 사용
+### Vector
 
-프레임워크 - 목적에 따라 효율적으로 구조를 짜놓는 개발 방식
+List의 후손으로 ArrayList와 동등하지만 동기화를 제공한다는 점이 ArrayList와의 차이점  
+-> List 객체들 중에서 가장 성능이 좋지 않아 거의 사용 하지 않음
+
+### LinkedList
+
+List의 후손으로, 인접 참조를 링크해 체인처럼 관리  
+특정 인덱스에서 객체를 제거하거나 추가하게 되면 바로 앞 / 뒤 링크만 변경하면 되기 때문에 객체 삭제와 삽입이 빈번하게 일어나는 곳에서는 ArrayList보다 성능이 좋음
+
+---
 
 ## ✏️ Set
 
-동일 객체 : 주소값까지 같은 것  
-동등 객체 : 주소값은 다르나 내용은 같은 것
+저장 순서가 유지되지 않고, 중복 객체도 저장하지 못하게 하는 자료 구조 null도 중복을 허용하지 않기 때문에 1개의 null만 저장
+
+![set](https://user-images.githubusercontent.com/105089699/183860663-bf4c7e91-ded9-4029-843f-bc97dd4c32c5.png)
+
+### Set 계열 주요 메소드
+
+![set](https://user-images.githubusercontent.com/105089699/183860981-00d8bacd-357a-47ac-8d7e-e6c9ddd48fea.png)
+
+- HashSet
+  Set에 객체를 저장할 떄 hash함수를 사용하여 처리 속도가 빠름  
+   동일 객체 뿐 아니라 동등 객체도 중복하여 저장하지 않음  
+   **동일 객체 : 주소값까지 같은 것  
+  동등 객체 : 주소값은 다르나 내용은 같은 것**
+- LinkedHashSet
+  HashSet과 거의 동일하지만  
+  Set에 추가되는 순서를 유지한다는 점이 다름
+
+### Iterator
+
+컬렉션에 저장된 요소를 접근하는데 사용되는 인터페이스
+
+- Enumeration : Iterator의 구버전
+- ListItretator : Iterator를 상속받아 양방향 특징
+  ![Iterator](https://user-images.githubusercontent.com/105089699/184042901-69e39026-f333-4142-91bd-44d685a771c7.png)
+
+---
+
+## ✏️ Map
+
+Key와 Value로 구성되어 있으며, 키와 값은 모두 객체  
+키는 중복 저장을 허용하지 않고(Set방식, 순서유지 불가), 값은 중복 저장 가능(List방식)  
+키가 중복되는 경우, 기존에 있는 키에 해당하는 값을 덮어 씌움  
+**Key와 Value의 쌍을 Entry라고 부른다**
+
+![map](https://user-images.githubusercontent.com/105089699/184044557-efde1e08-86c7-4029-942e-edaacb68bf01.png)
+
+### Map의 메소드
+
+![map 메소드](https://user-images.githubusercontent.com/105089699/184044833-e3ce9351-ea7b-423a-b327-f756cedeea44.png)
+
+### HashMap
+
+키 객체는 hashCode()와 equals()를 재정의해 동등 객체가 될 조건을 정해야함, 때문에 키 타입은 hashCOde와 equals()메소드가 재정의 되어있는 string타입을 주로 사용
+
+### Hasshtable
+
+HashMap의 구버전  
+키 객체 만드는 법은 HashMap과 동일하나 Hashtable은 쓰레드 동기화가 된 상태이기 때문에, 복수의 쓰레드가 동시에 Hashtable에 접근해 객체를 추가, 삭제 하더라도 쓰레드에 안전
+
+### Properties
+
+키와 값을 String타입으로 제한한 Map컬렉션  
+주로 Properties느 프로퍼티(\*.properties)파일을 읽어 들일 때 주로 사용
+
+#### 프로퍼티(\*.properties)파일
+
+- 옵션정보, 데이터베이스 연결정보, 국제화정보를 기록하여 텍스트 파일로 활용
+- 애플리케이션에서 주로 변경이 잦은 문자열을 저장하여 관리하기 때문에 유지보수를 편리하게 만들어줌
+- 키와 값이 '='기호로 연결되어 있는 텍스트 파일로 ISO 8859-1 문자셋으로 저장되고, 한글은 유니코드로 변환되어 저장
+
+```JAVA
+HashMap<String, Snack> map = new HashMap<>();
+											// 타입 추론
+		// put(K key, V value):V -> 맵에 key와 value 추가(key의 전 vlaue 반환)
+		map.put("새우깡", new Snack("짠맛", 1500));
+		map.put("다이제", new Snack("단맛", 2500));
+		map.put("포테이토칩", new Snack("짠맛", 1500));
+		map.put("고소미", new Snack("고소한맛", 1000));
+		System.out.println(map); // {다이제=단맛[2500원], 새우깡=짠맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
+
+		map.put("새우깡", new Snack("매운맛", 1500)); // 중복저장이 불가능, 덮어쓰기
+		System.out.println(map); // {다이제=단맛[2500원], 새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원], 고소미=고소한맛[1000원]} 출력
+
+		// containsKey(Object key):boolean -> 맵에 특정 key가 있는지 확인
+		System.out.println(map.containsKey("새우깡")); // true 출력
+
+		// containsValue(Object value):boolean -> 맵에 특정 value가 있는지 확인 (equals메소드 오버라이딩 해야함)
+		System.out.println(map.containsValue(new Snack("짠맛", 1500))); // true 출력
+
+		// get(Object key):V -> 맵에 특정 key의 value를 반환(존재하지 않으면 null 반환)
+		Snack get1 = map.get("새우깡"); // 매운맛[1500원] 반환
+		System.out.println(get1);
+		Snack get2 = map.get("홈런볼");
+		System.out.println(get2); // null 반환
+
+		// keySet():Set<K> -> map에 있는 모든 key를 Set에 담아 반환
+		Set<String> set1 = map.keySet();
+		System.out.println(set1);
+		Iterator<String> it1 = set1.iterator();
+		while(it1.hasNext()) {
+			String key = it1.next();
+			Snack value = map.get(key);
+			System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
+		}
+
+		// entrySet():set<Entry<K, V>> -> 모든 entry를 set에 담아 반환
+		Set<Entry<String, Snack>> set2 = map.entrySet();
+		System.out.println(set2);
+		Iterator<Entry<String, Snack>> it2 = set2.iterator();
+		while(it2.hasNext()) {
+			Entry<String, Snack> entry = it2.next();
+			String key = entry.getKey();
+			Snack value = entry.getValue();
+			System.out.println(key + " : " + value); // 맵의 모든 key와 value 출력
+		}
+	}
+```
