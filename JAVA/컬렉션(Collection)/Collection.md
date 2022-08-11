@@ -213,7 +213,6 @@ while(it2.hasNext()) {
 }
 ```
 
-
 ### Hashtable
 
 HashMap의 구버전  
@@ -224,8 +223,56 @@ HashMap의 구버전
 키와 값을 String타입으로 제한한 Map컬렉션  
 주로 Properties느 프로퍼티(\*.properties)파일을 읽어 들일 때 주로 사용
 
+```JAVA
+Properties prop = new Properties();
+// setProperty(String key, String value) -> Properties에 key와 value 추가
+prop.setProperty("채소", "오이");
+prop.setProperty("과일", "사과");
+prop.setProperty("견과", "호두");
+prop.setProperty("간식", "젤리");
+prop.setProperty("정육", "한우");
+System.out.println(prop); // {채소=오이, 과일=사과, 견과=호두, 정육=한우, 간식=젤리} 출력
+
+prop.setProperty("간식", "사탕"); // 중복 불가, 덮어쓰기
+System.out.println(prop); // {채소=오이, 과일=사과, 견과=호두, 정육=한우, 간식=사탕} 출력
+
+// getProperty(String key):String -> 특정 key의 value 반환 없으면 null 반환
+System.out.println(prop.getProperty("정육")); // 한우 출력
+System.out.println(prop.getProperty("음료")); // null 출력
+// getProperty(String key, String defaultValue):String -> 특정 key의 value 반환 없으면 default 반환
+System.out.println(prop.getProperty("견과", "땅콩")); // 호두 출력
+System.out.println(prop.getProperty("음료", "녹차")); // 녹차 출력
+```
+
 #### 프로퍼티(\*.properties)파일
 
 - 옵션정보, 데이터베이스 연결정보, 국제화정보를 기록하여 텍스트 파일로 활용
 - 애플리케이션에서 주로 변경이 잦은 문자열을 저장하여 관리하기 때문에 유지보수를 편리하게 만들어줌
 - 키와 값이 '='기호로 연결되어 있는 텍스트 파일로 ISO 8859-1 문자셋으로 저장되고, 한글은 유니코드로 변환되어 저장
+
+### TreeMap
+
+TreeMap의 key는 저장과 동시에 자동으로 오름차순 정렬  
+숫자 타입일 경우 값으로 정렬  
+문자열 타입일 경우 유니코드로 정렬
+
+```JAVA
+TreeMap<String, Snack> map2 = new TreeMap<String, Snack>(map);// map2에 map 저장
+System.out.println(map2); // {고소미=고소한맛[1000원], 다이제=단맛[2500원], 새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원]} 출력
+
+// TreeMap.size():int -> TreeMap의 크기 반환
+System.out.println(map2.size()); // 4 출력
+// remove(Object key) -> 특정 key 삭제 (특정 key가 존재하면 삭제후 value반환, 존재하지 않으면 null반환)
+System.out.println(map2.remove("다이제")); // 단맛[2500원] 출력
+System.out.println(map2.remove("홈런볼")); // null 출력
+System.out.println(map2); // {고소미=고소한맛[1000원], 새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원]} 출력
+// remove(Object key, Object value):boolean -> 특정 key와 value 삭제(존재하면 삭제후 true 존재하지 않으면 false 출력)
+System.out.println(map2.remove("고소미", new Snack("고소한맛", 1000))); // true 출력
+System.out.println(map2.remove("홈런볼", new Snack("단맛", 1000))); // false 출력
+System.out.println(map2); // {새우깡=매운맛[1500원], 포테이토칩=짠맛[1500원]} 출력
+// clear() -> 맵안 전부 지우기
+map2.clear();
+System.out.println(map2); // {}출력
+// isEmpty():boolean -> 맵 안에 값이 없으면 true 값이 있으면 false 반환
+System.out.println(map2.isEmpty()); // true 출력
+```
