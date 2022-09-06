@@ -125,7 +125,7 @@ FROM EMPLOYEE
 WHERE SALARY >= 40000000;
 ```
 
-#### 논리 연산자 : AND, OR
+### 논리 연산자 : AND, OR
 
 `여러 개의 제한 조건 결과를 하나의 논리 결과로 만들어줌`
 
@@ -151,7 +151,7 @@ FROM EMPLOYEE
 WHERE DEPT_CODE = 'D6' OR SALARY >2000000;
 ```
 
-#### 연결 연산자
+### 연결 연산자
 
 `'||'를 사용하여 여러 컬럼을 하나의 컬럼인 것처럼 연결하거나 컬럼과 리터럴을 연결함`
 
@@ -169,7 +169,7 @@ SELECT EMP_NAME||'의 월급은'||SALARY||'원 입니다.'
 FROM EMPLOYEE;
 ```
 
-#### 비교 연산자
+### 비교 연산자
 
 `표현식 사이의 관계를 비교하기 위해 사용하고 비교 결과는 논리 결과(TRUE/FALSE/NULL) 중 하나가 됨, 단 비교하는 두 컬럼 값/표현식은 서로 동일한 데이터 타입이어야 함`
 
@@ -213,4 +213,31 @@ WHERE EMP_NAME LIKE '%하%';
 SELECT EMP_ID, EMP_NAME, PHONE
 FROM EMPLOYEE
 WHERE PHONE LIKE '___9%';
+```
+
+#### IS NULL / IS NOT NULL
+
+`NULL 여부를 비교하는 연산자`
+
+```SQL
+-- EMPLOYEE테이블에서 보너스를 받지 않는 사원의 사번, 이름, 급여, 보너스 조회
+SELECT EMP_ID, EMP_NAME, SALARY, BONUS
+FROM EMPLOYEE
+WHERE BONUS IS NULL;
+
+-- EMPLOYEE테이블에서 보너스를 받는 사원의 사번, 이름, 급여, 보너스 조회
+SELECT EMP_ID, EMP_NAME, SALARY, BONUS
+FROM EMPLOYEE
+WHERE BONUS IS NOT NULL;
+```
+
+#### IN
+
+`비교하려는 값 목록에 일치하는 값이 있으면 TRUE를 반환하는 연산자`
+
+```SQL
+-- 직급 코드가 J1, J2, J3, J4인 사람들의 이름, 직급코드, 급여 조회
+SELECT EMP_NAME, JOB_CODE, SALARY
+FROM EMPLOYEE
+WHERE JOB_CODE IN ('J1', 'J2', 'J3', 'J4');
 ```
