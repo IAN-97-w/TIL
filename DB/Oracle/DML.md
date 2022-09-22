@@ -123,14 +123,14 @@ FROM EMPLOYEE;
 
 -- 방명수 사원의 급여와 보너스율을 유재식 사원과 동일하게 변경
 UPDATE EMP_SALARY
-SET (SALARY, BONUS) = (SELECT SALARY, BINUS
+SET (SALARY, BONUS) = (SELECT SALARY, BONUS
                        FROM EMP_SALARY
                        WHERE EMP_NAME = '유재식')
 WHERE EMP_NAME = '방명수';
 
 -- 노옹철, 전형돈, 정중하, 하동운 사원의 급여, 보너스를 유재식 사원과 같은 값으로 변경
 UPDATE EMP_SALARY
-SET (SALARY, BONUS) = (SELECT SALARY, BINUS
+SET (SALARY, BONUS) = (SELECT SALARY, BONUS
                        FROM EMP_SALARY
                        WHERE EMP_NAME = '유재식')
 WHERE EMP_NAME IN ('노옹철', '전형돈', '정중하', '하동운');
