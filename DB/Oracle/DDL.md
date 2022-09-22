@@ -54,7 +54,7 @@ COMMENT ON COLUMN MEMBER.PHONE IS '전화번호';
 
 ![제약조건](https://user-images.githubusercontent.com/105089699/188381955-f4d114a4-1dc6-49b6-a187-a464362191d3.png)
 
-- NOT NULL
+- NOT NULL  
   해당 컬럼에 반드시 값이 기록되어야 하는 경우 사용  
   특정 컬럼에 값을 저장/수정할 때는 NULL값을 허용하지 않도록 컬럼 레벨에서 제한
 
@@ -68,7 +68,7 @@ CREATE TABLE USER(
 );
 ```
 
-- UNIQUE
+- UNIQUE  
   컬럼 입력 값에 대해 중복을 제한하는 제약조건으로  
   컬럼 레벨과 테이블 레벨에 설정 가능
 
@@ -83,7 +83,7 @@ CREATE TABLE USER(
 );
 ```
 
-- PRIMARY KEY
+- PRIMARY KEY  
   테이블에서 한 행의 정보를 구분하기 위한 고유 식별자 역할  
   NOT NULL의 의미와 UNIQUE의 의미를 둘 다 가지고 있으며
   한 테이블 당 하나만 설정 가능  
