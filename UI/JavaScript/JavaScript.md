@@ -127,7 +127,7 @@ var 변수 = [window.]confirm("질문내용");
 </script>
 ```
 
-![confirm](https://user-images.githubusercontent.com/105089699/191661067-a72e9260-a348-4abc-ba9a-2073daccfa32.png)
+<img src="https://user-images.githubusercontent.com/105089699/191661067-a72e9260-a348-4abc-ba9a-2073daccfa32.png" width="300px" height="100px">
 
 2. window.prompt() : 텍스트 필드와 확인/취소버튼이 있는 대화 창 출력 `리턴 값 : 입력한 내용`
 
@@ -139,7 +139,7 @@ var 변수 = [window.]prompt('메세지');
 </script>
 ```
 
-![prompt](https://user-images.githubusercontent.com/105089699/191662652-80aa57e1-dbc0-4b12-af10-fa3d35ba1a27.png)
+<img src="https://user-images.githubusercontent.com/105089699/191662652-80aa57e1-dbc0-4b12-af10-fa3d35ba1a27.png" width="300px" height="100px">
 
 ---
 
@@ -161,4 +161,4 @@ var 변수 = [window.]prompt('메세지');
 	</script>
 ```
 
-![getElement](https://user-images.githubusercontent.com/105089699/191663556-90e9b550-6b57-431a-8932-e51fa89d398c.png)
+<img src="https://user-images.githubusercontent.com/105089699/191663556-90e9b550-6b57-431a-8932-e51fa89d398c.png" width="300px" height="200px">
