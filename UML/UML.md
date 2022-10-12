@@ -24,13 +24,13 @@
 
 ### ✓ UML 다이어그램 종류
 
-<img src="https://user-images.githubusercontent.com/105089699/195228117-a1a01908-af65-4725-911e-e9bac4f4156d.png" width="50%">
+<img src="https://user-images.githubusercontent.com/105089699/195228117-a1a01908-af65-4725-911e-e9bac4f4156d.png" width="60%">
 
-<img src="https://user-images.githubusercontent.com/105089699/195228878-537d9460-d77f-48ac-ab9a-b94860265173.png" width="50%">
+<img src="https://user-images.githubusercontent.com/105089699/195228878-537d9460-d77f-48ac-ab9a-b94860265173.png" width="60%">
 
 ### ✓ 클래스 다이어그램
 
-<img src="https://user-images.githubusercontent.com/105089699/195229407-83bf4a42-4a26-43c3-b196-c389e1e14409.png" width="50%">
+<img src="https://user-images.githubusercontent.com/105089699/195229407-83bf4a42-4a26-43c3-b196-c389e1e14409.png" width="60%">
 
 ### ✓ 유스케이스 다이어그램
 
@@ -40,14 +40,14 @@
 
 ### ✓ 시퀀스 다이어그램
 
-<img src="https://user-images.githubusercontent.com/105089699/195229747-b10312ba-3a03-4ef6-8863-38701814ef63.png" width="50%">
+<img src="https://user-images.githubusercontent.com/105089699/195229747-b10312ba-3a03-4ef6-8863-38701814ef63.png" width="60%">
 
 `시간에 대한 흐름을 표현`
 
 ### ✓ 소프트웨어 개발 프로세스
 
-<img src="https://user-images.githubusercontent.com/105089699/195230391-46258adb-c166-42a1-97cd-ac954f9074f8.png" width="50%">
+<img src="https://user-images.githubusercontent.com/105089699/195230391-46258adb-c166-42a1-97cd-ac954f9074f8.png" width="70%">
 
-#### 요구사항 분석
+#### 요구사항 분석 단계
 
-요구사항 추출 -> 분석 -> 명세(기록) -> 검증 -> 유지보수
+추출 -> 분석 -> 명세(기록) -> 검증 -> 유지보수
